@@ -204,7 +204,8 @@ def recuperar_conta_cliente(cliente):
     return cliente.contas[0]
 
 
-def depositar(clientes):
+def depositar(clientes: list[PessoaFisica]):
+    
     cpf = input("Informe o CPF do cliente: ")
     cliente = filtrar_cliente(cpf, clientes)
 
@@ -213,6 +214,7 @@ def depositar(clientes):
         return
 
     valor = float(input("Informe o valor do depósito: "))
+
     transacao = Deposito(valor)
 
     conta = recuperar_conta_cliente(cliente)
